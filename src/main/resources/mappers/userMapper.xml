@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gongsunfusu.dao.userMapper">
+    <resultMap id="BaseResultMap" type="com.gongsunfusu.pojo.user">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+    <insert id="insertUser" parameterType="com.gongsunfusu.pojo.user">
+        INSERT INTO user(name,password,salt) VALUES(#{name},#{password},#{salt});
+    </insert>
+    <select id="selectUser" parameterType="com.gongsunfusu.pojo.user" resultType="com.gongsunfusu.pojo.user">
+        SELECT * FROM user WHERE name = #{name} LIMIT 0,1;
+    </select>
+    <select id="selectUserList" resultMap="BaseResultMap">
+        SELECT id,name,password FROM user;
+    </select>
+</mapper>

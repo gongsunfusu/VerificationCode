@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>
+									编号
+								</th>
+								<th>
+									用户名
+								</th>
+								<th>
+									密码
+								</th>
+							</tr>
+						</thead>
+						<tbody th:each="user:${userList}">
+							<tr>
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.name}"></td>
+								<td th:text="${user.password}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</html>

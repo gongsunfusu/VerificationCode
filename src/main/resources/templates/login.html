@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html  lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/gongsunfusu.css" />
+	</head>
+	<body class="bodyLogon">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span3">
+				</div>
+				<div class="span6">
+					<div class="middle">
+						<form class="form-horizontal middle-form login" th:action="${path + 'loginUser'}" method="post">
+							<div class="control-group">
+								 <label class="control-label" for="inputEmail">用户名</label>
+								<div class="controls">
+									<input id="inputEmail" name="name" type="text" />
+								</div>
+							</div>
+							<div class="control-group">
+								 <label class="control-label" for="inputPassword">密码</label>
+								<div class="controls">
+									<input id="inputPassword" name="password" type="password" />
+								</div>
+							</div>
+							<div class="control-group">
+								 <label class="control-label" for="inputVerification">验证码</label>
+								<div class="controls">
+									<input id="inputVerification" name="verification" type="text" />
+									<img class="captcha_img" alt="点击更换" title="点击更换" onclick="chageVerify()" th:src="${path + 'kaptcha'}" /><!-- src是web.xml文件里的url-pattern标签 -->
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									 <!--<label class="checkbox"><input type="checkbox" name="setCookie" /> 记住我</label>-->
+									 <button type="submit" class="btn btn-primary btn-lg">登陆</button>
+									 <button id="loginButton" type="button" class="btn btn-link">没有账号，去注册！</button>
+								</div>
+							</div>
+						</form>
+						<form class="form-horizontal middle-form register" th:action="${path + 'registerUser'}" method="post">
+							<div class="control-group">
+								 <label class="control-label" for="inputEmail">用户名</label>
+								<div class="controls">
+									<input id="inputEmail" name="name" type="text" />
+								</div>
+							</div>
+							<div class="control-group">
+								 <label class="control-label" for="inputPassword">密码</label>
+								<div class="controls">
+									<input id="inputPassword" name="password" type="password" />
+								</div>
+							</div>
+							<div class="control-group">
+								 <label class="control-label" for="inputAgainPassword">确定密码</label>
+								<div class="controls">
+									<input id="inputAgainPassword" name="newPassword" type="password" />
+								</div>
+							</div>
+							<div class="control-group">
+								 <label class="control-label" for="inputVerification">验证码</label>
+								<div class="controls">
+									<input id="inputVerification" name="verification" type="text"/>
+									<img class="captcha_img" alt="点击更换" title="点击更换" onclick="chageVerify()" th:src="${path + 'kaptcha'}" /><!-- src是web.xml文件里的url-pattern标签 -->
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									 <button type="submit" class="btn btn-primary btn-lg">注册</button>
+									 <button id="registerButton" type="button" class="btn btn-link">已有账号，去登录！</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="span3">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/gongsunfusu.js"></script>
+</html>
